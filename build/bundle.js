@@ -1,21 +1,20 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  const room = () => {
-    const title = 'Room';
-    return `${title} and Board`;
-  };
+    var room = function () {
+        var title = 'Room';
+        return title + " and Board";
+    };
 
-  const app = () => {
-    let app = 'App';
-    let roomTitle = room();
-    return `${roomTitle} ${app}`;
-  };
+    var app = function () {
+        var app = 'App';
+        var roomTitle = room();
+        return roomTitle + " " + app;
+    };
 
-  const run = () => {
-    console.log(app());
-  };
-
-  run();
+    var run = function () {
+        console.log(app());
+    };
+    run();
 
 }());

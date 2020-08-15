@@ -1,7 +1,8 @@
 import { terser } from 'rollup-plugin-terser';
+import typescript from '@rollup/plugin-typescript';
 
 export default {
-  input: 'src/main.js',
+  input: 'src/main.ts',
   output: [
     {
       file: 'build/bundle.js',
@@ -13,4 +14,5 @@ export default {
       plugins: [terser()],
     },
   ],
+  plugins: [typescript()],
 };
