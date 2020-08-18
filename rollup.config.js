@@ -1,19 +1,29 @@
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import analyze from 'rollup-plugin-analyzer';
+import copy from 'rollup-plugin-copy';
 
 export default {
-  input: 'src/main.ts',
+  input: 'src/main.js',
   output: [
     {
-      file: 'build/bundle.js',
-      format: 'iife',
-    },
-    {
-      file: 'build/bundle.min.js',
+      file: 'build/main.min.js',
       format: 'iife',
       plugins: [terser()],
     },
   ],
-  plugins: [typescript(), analyze({ summaryOnly: true })],
+  plugins: [
+    typescript(),
+    analyze({ summaryOnly: true }),
+    copy({
+      targets: [
+        {
+          src: 'src/index.html',
+          dest: 'build',
+          transform: (contents) =>
+            contents.toString().replace('main.js', 'main.min.js'),
+        },
+      ],
+    }),
+  ],
 };
