@@ -1,5 +1,6 @@
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
+import analyze from 'rollup-plugin-analyzer';
 
 export default {
   input: 'src/main.ts',
@@ -14,5 +15,5 @@ export default {
       plugins: [terser()],
     },
   ],
-  plugins: [typescript()],
+  plugins: [typescript(), analyze({ summaryOnly: true })],
 };
