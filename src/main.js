@@ -1,8 +1,11 @@
 import { app } from './components/app';
 import { oldFunction } from './components/old';
+import './app.css';
 
 const run = () => {
-  document.body.append(app());
+  let appEl = document.createElement('div');
+  appEl.innerHTML = app();
+  document.body.appendChild(appEl);
 };
 
 run();
