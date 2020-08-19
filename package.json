@@ -8,7 +8,8 @@
     "autobuild": "rollup -c -w",
     "dev": "npm-run-all -p start:dev autobuild",
     "start:dev": "sirv build --single --port 5009 --dev",
-    "mobile-dev": "dev --host"
+    "start:mobile-dev": "sirv build --single --port 5009 --dev --host",
+    "mobile-dev": "npm-run-all -p start:mobile-dev autobuild"
   },
   "author": "lod mulder",
   "license": "ISC",
